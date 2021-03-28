@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>View Books</title>
+    <link rel="stylesheet" href="#">
+  </head>
+  <body>
+     <div id="header">
+       <h2>Book Management System</h2>
+       <div id="nav">
+         <a href="http://localhost:8000/Books/view-books">View Books</a>
+         <a href="http://localhost:8000/Books/insert-book">Insert New Book</a>
+         <a href="http://localhost:8000/Books/search-book">Search Book</a>
+           <a href="http://localhost:8000/Books/user-logout">Logout</a>
+       </div>
+
+     </div>
+
+     <div id="main">
+       <h2>Book Records</h2>
+       <table>
+         <tr>
+           <th>Name</th>
+           <th>Price</th>
+           <th>Author</th>
+           <th>Publisher</th>
+         </tr>
+         {% for book in books %}
+         <tr>
+           <td>{{book.name}}</td>
+           <td>{{book.price}}</td>
+           <td>{{book.author}}</td>
+           <td>{{book.publisher}}</td>
+           <td><a href="http://localhost:8000/Books/edit-book?bookid={{book.id}}">Edit</a></td>
+           <td><a href="http://localhost:8000/Books/delete-book?bookid={{book.id}}">Delete</a></td>
+         </tr>
+
+         {% endfor %}
+       </table>
+
+     </div>
+  </body>
+</html>

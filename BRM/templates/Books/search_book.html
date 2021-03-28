@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Search Book Record</title>
+  </head>
+  <body>
+    <div id="header">
+      <h2>Book Management System</h2>
+      <div id="nav">
+        <a href="http://localhost:8000/Books/view-books">View Books</a>
+        <a href="http://localhost:8000/Books/insert-book">Insert New Book</a>
+        <a href="http://localhost:8000/Books/search-book">Search Book</a>
+          <a href="http://localhost:8000/Books/user-logout">Logout</a>
+      </div>
+     <form  action="http://localhost:8000/Books/search" method="post">
+       {% csrf_token %}
+       {{form}}
+
+       <input type="submit" value="Search">
+     </form>
+     {% if books %}
+     <table>
+       <tr>
+         <th>Name</th>
+         <th>Price</th>
+         <th>Author</th>
+         <th>Publisher</th>
+       </tr>
+       {% for book in books %}
+       <tr>
+         <th>{{book.name}}</th>
+         <th>{{book.price}}</th>
+         <th>{{book.author}}</th>
+         <th>{{book.publisher}}</th>
+       </tr>
+       {% endfor %}
+     </table>
+     {% endif %}
+  </body>
+</html>

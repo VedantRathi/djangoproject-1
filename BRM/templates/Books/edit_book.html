@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    
+  </head>
+  <body>
+    <div id="header">
+      <h2>Book Management System</h2>
+      <div id="nav">
+        <a href="http://localhost:8000/Books/view-books">View Books</a>
+        <a href="http://localhost:8000/Books/insert-book">Insert New Book</a>
+        <a href="http://localhost:8000/Books/search-book">Search Book</a>
+        <a href="http://localhost:8000/Books/user-logout">Logout</a>
+      </div>
+
+    </div>
+    <div id="main">
+      <form action="http://localhost:8000/Books/update" method="post">
+
+        {% csrf_token %}
+        <input type="hidden" name="bookid" value="{{book.id}}">
+        {{form}}
+        <input type="submit"  value="Update">
+      </form>
+
+
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+  </head>
+  <body>
+    <div id="nav">
+      <a href="http://localhost:8000/Books/view-books">View Books</a>
+      <a href="http://localhost:8000/Books/insert-book">Insert New Book</a>
+      <a href="http://localhost:8000/Books/search-book">Search Book</a>
+        <a href="http://localhost:8000/Books/user-logout">Logout</a>
+    </div>
+    <div id="main">
+      <h2>Insert Book</h2>
+      <form action="http://localhost:8000/Books/save-book" method="post">
+          {% csrf_token %}
+          {{form}}
+          <input type="submit"  value="Insert">
+      </form>
+    </div>
+  </body>
+</html>
